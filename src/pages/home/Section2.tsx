@@ -7,7 +7,7 @@ const Section2 = () => {
   const righttopRef = useRef<HTMLDivElement>(null)
   const rightbottomRef = useRef<HTMLDivElement>(null)
   const [count1, setcount1] = useState(0);
-  const [count2, setcount2] = useState(100);
+  const [count2, setcount2] = useState(0);
   const [anitrue, setanitrue] = useState(false);
   useEffect(() => {
 
@@ -46,23 +46,29 @@ const Section2 = () => {
     let num2 = 1000;
 
     const time1 = setInterval(() => {
-      num1 += 3;
-      setcount1(num1)
-      if (num1 > 100) {
-        clearInterval(time1)
+      if (num1 + 3 >= 100) {
+        num1 = 100;
+        setcount1(num1);
+        clearInterval(time1);
+      } else {
+        num1 += 3;
+        setcount1(num1);
       }
-    }, 50)
+    }, 50);
 
     const time2 = setInterval(() => {
-      num2 += 100;
-      setcount2(num2)
-      if (num2 > 10000) {
-        clearInterval(time2)
+      if (num2 + 100 >= 10000) {
+        num2 = 10000;
+        setcount2(num2);
+        clearInterval(time2);
+      } else {
+        num2 += 100;
+        setcount2(num2);
       }
-    }, 50)
+    }, 20);
   }
 
-
+  // 올려놓은거중에 다음 이미지를 막 눌럿을때 찾아서 적용시켜보기
 
   return (
     <section className="section2" ref={sectionRef}>

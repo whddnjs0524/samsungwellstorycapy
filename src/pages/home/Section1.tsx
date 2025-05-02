@@ -7,7 +7,7 @@ const Section1 = () => {
     const [showCircle, setshowCircle] = useState(false)
     const [bgidx, setbgidx] = useState(0)
 
-    const bgimgs = ['/img/img1.jpg', '/img/img2.jpg', '/img/img3.jpg'];
+    const bgimgs = ['img/img1.jpg', 'img/img2.jpg', 'img/img3.jpg'];
     useEffect(() => {
         const timer = setTimeout(() => settextactive(true), 1000);
         return () => clearTimeout(timer)
